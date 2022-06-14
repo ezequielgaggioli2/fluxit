@@ -1,6 +1,7 @@
 
 # Desafío técnico Flux IT
 
+
 ## Instrucciones para ejecutar proyecto
 1. **Descargar proyecto desde GitHub**
 
@@ -25,9 +26,11 @@
 	Luego del paso anterior, en la raiz del proyecto se genera una carpeta target donde se encuentra el ejecutable del proyecto. Dentro de la carpeta target ejecutar el siguiente comando para iniciar servidor SpringBoot :
 	> java -jar springboot-fluxit-1.0.jar 
 
+
 ## Anexo
 
 En la raiz del proyecto descargado se encuentra el archivo `fluxit.postman_collection.json` para realizar algunas pruebas por postman. 
+
 
 ## Consideraciones
 
