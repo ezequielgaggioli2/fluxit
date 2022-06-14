@@ -36,4 +36,4 @@ En la raiz del proyecto descargado se encuentra el archivo `fluxit.postman_colle
 
 - El desarrollo se realizó dirigido por pruebas (TDD).
 - Para las pruebas unitarias se utilizó el framework Mockito.
-- Para la generación de los tokens de autenticación se utilizo el standard JWT. Pero al generar los mismos puse una fecha fija de creación y expiración para que no sea tan dinámico (solo cambia por el subject) y funcionen las pruebas unitarias y por postman
+- Para la generación de los tokens de autenticación se utilizo el standard JWT. Pero al generar los mismos puse una fecha fija de creación y expiración para que no sea tan dinámico (solo cambia por el subject) y de ese modo funcionen mejor las pruebas unitarias y por PostMan.
