@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "b4c899dc-8a4b-4854-b4a5-1b02c6924fd3",
+		"name": "fluxit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21418418"
+	},
+	"item": [
+		{
+			"name": "Generar contraseña de prueba",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmbHV4aXQxIiwiZXhwIjo0MTA1MTM0MDAwLCJpYXQiOjE2NTUwMDI4MDB9.lMX3eAQc4Et1JQWm2LPjsX86T0M1001TIyleO0w6-_h9AM7rzfeSPF__A3ULkkqMy8OX_Eb8a3AjVIHVDcdKRw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/pass?pass=1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"pass"
+					],
+					"query": [
+						{
+							"key": "pass",
+							"value": "1234"
+						}
+					]
+				},
+				"description": "Esto sirve para generar una contraseña Bcrypt para el alta manual de un usuario en base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "Auntenticar usuario 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"fluxit1\", \"pass\":\"1234\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"auth"
+					]
+				},
+				"description": "Me retorna el token para el usuario y contraseña ingresado"
+			},
+			"response": []
+		},
+		{
+			"name": "Auntenticar usuario 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userName\":\"fluxit2\", \"pass\":\"1234\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"auth"
+					]
+				},
+				"description": "Me retorna el token para el usuario y contraseña ingresado"
+			},
+			"response": []
+		},
+		{
+			"name": "Alta candidato desde usuario 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token_usuario_1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"dni\":12345678,\"name\":\"Vicky\",\"surName\":\"Xipolitaki\",\"dateBirth\":1655076641567,\"email\":\"vickyh@gmail.com\",\"address\":\"Miami 25\",\"phoneNumber\":\"0800 222 3969\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/candidate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"candidate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alta candidato desde usuario 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token_usuario_2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"dni\":87654321,\"name\":\"Victoria\",\"surName\":\"Secret\",\"dateBirth\":1655076641567,\"email\":\"vicsec@gmail.com\",\"address\":\"RN A002 5, B1802 Ezeiza\",\"phoneNumber\":\"+54 011 4480-9683\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/candidate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"candidate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar candidato",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token_usuario_1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Mirta\",\"surName\":\"Legrand\",\"dateBirth\":1655076641567,\"email\":\"mirta@gmail.com\",\"address\":\"Canal 13\",\"phoneNumber\":\"+54 011 2558895\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/candidate/12345678",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"candidate",
+						"12345678"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener info completa candidato",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token_usuario_1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/candidate/32665789",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"candidate",
+						"32665789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(Paginado) Buscar candidato por dni o nombre y apellido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token_usuario_1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/candidate?dni=32698112&name=La&surName=La&page=0&pageSize=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"candidate"
+					],
+					"query": [
+						{
+							"key": "dni",
+							"value": "32698112"
+						},
+						{
+							"key": "name",
+							"value": "La"
+						},
+						{
+							"key": "surName",
+							"value": "La"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar candidato",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token_usuario_1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/fluxit/v1/candidate/14314989",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fluxit",
+						"v1",
+						"candidate",
+						"14314989"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
