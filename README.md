@@ -13,7 +13,7 @@
 	
 3. **Configurar conexión a base de datos MySql**
 
-	Se debe ingresar a la carpeta `src/main/resources` que se encuentra en la raíz del proyecto. En ese lugar se encuentra un archivo llamado `aplication.properties`. Dentro de ese archivo se puede configurar la uri, usuario y contraseña de la base de datos.
+	Se debe ingresar a la carpeta `src/main/resources` que se encuentra en la raíz del proyecto. En ese lugar se encuentra un archivo llamado `aplication.properties`. Dentro de ese archivo se puede configurar la uri, usuario y contraseña de la base de datos segun su servidor Mysql.
 
 4. **Generar proyecto y ejecutar pruebas**
 
