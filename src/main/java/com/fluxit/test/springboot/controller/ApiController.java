@@ -45,7 +45,7 @@ public class ApiController {
 	@GetMapping("/pass")
 	public String generatePass(String pass) {
 		//Metodo de prueba para generar contraseñas bcrypt
-		return new BCryptPasswordEncoder().encode(pass);
+		return "Pass: " + new BCryptPasswordEncoder().encode(pass) + "\n";
 	}
 	
 	@PostMapping("/auth")
