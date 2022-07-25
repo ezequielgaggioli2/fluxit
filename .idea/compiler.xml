@@ -9,9 +9,12 @@
         <module name="springboot-fluxit" />
       </profile>
     </annotationProcessing>
+<<<<<<< HEAD
     <bytecodeTargetLevel>
       <module name="springboot-fluxit" target="1.8" />
     </bytecodeTargetLevel>
+=======
+>>>>>>> main
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
