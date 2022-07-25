@@ -32,9 +32,9 @@ import com.fluxit.test.springboot.util.ResponseCodeEnum;
 @RequestMapping("/fluxit/v1")
 public class ApiController {
 	
-	private IUserService userServ;
+	private final IUserService userServ;
 	
-	private ICandidateService candidateServ;
+	private final ICandidateService candidateServ;
 	
 	@Autowired
 	public ApiController(IUserService userServ, ICandidateService candidateServ) {
@@ -45,7 +45,7 @@ public class ApiController {
 	@GetMapping("/pass")
 	public String generatePass(String pass) {
 		//Metodo de prueba para generar contraseñas bcrypt
-		return new BCryptPasswordEncoder().encode(pass);
+		return "Pass: " + new BCryptPasswordEncoder().encode(pass) + "\n";
 	}
 	
 	@PostMapping("/auth")
